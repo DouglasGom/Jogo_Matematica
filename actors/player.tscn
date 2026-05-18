@@ -1,0 +1,142 @@
+[gd_scene format=3 uid="uid://jvqrylx7ty1s"]
+
+[ext_resource type="Script" uid="uid://oksrlqtjiwar" path="res://levels/player.gd" id="1_mvpqy"]
+[ext_resource type="Texture2D" uid="uid://b00bdj6ntmfkw" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Idle_(32 x 32).png" id="2_1yqc4"]
+[ext_resource type="Texture2D" uid="uid://snm1pug6l5kq" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Jumping_(32 x 32).png" id="3_esgq3"]
+[ext_resource type="Texture2D" uid="uid://c1jvaxektfppa" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Running_(32 x 32).png" id="4_kjkj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mvpqy"]
+size = Vector2(13, 21)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dtykb"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wu64i"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naeyk"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o58wf"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j8rs1"]
+atlas = ExtResource("2_1yqc4")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tue77"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_33vod"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er1rk"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e7yfm"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua707"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rkwqa"]
+atlas = ExtResource("4_kjkj0")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fwd2m"]
+animations = [{
+"frames": [],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dtykb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wu64i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naeyk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o58wf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j8rs1")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 6.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_esgq3")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tue77")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_33vod")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_er1rk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e7yfm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua707")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rkwqa")
+}],
+"loop": true,
+"name": &"run",
+"speed": 6.0
+}]
+
+[node name="player" type="CharacterBody2D" unique_id=618372344]
+position = Vector2(100, 100)
+scale = Vector2(1.5, 1.5)
+script = ExtResource("1_mvpqy")
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=730379811]
+visible = false
+position = Vector2(0.5, -11.5)
+shape = SubResource("RectangleShape2D_mvpqy")
+
+[node name="camera" type="Camera2D" parent="." unique_id=321134772]
+position = Vector2(52, -66.666664)
+limit_left = -27
+limit_top = -100061
+limit_right = 9999973
+limit_bottom = 9999939
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+rotation_smoothing_speed = 10.0
+editor_draw_drag_margin = true
+
+[node name="anim" type="AnimatedSprite2D" parent="." unique_id=1709040924]
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_fwd2m")
+animation = &"jump"
+autoplay = "idle"
+
+[node name="animator" type="AnimationPlayer" parent="." unique_id=221906418]
+root_node = NodePath("../anim")
