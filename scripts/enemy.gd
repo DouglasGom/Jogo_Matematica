@@ -30,4 +30,5 @@ func _physics_process(delta: float) -> void:
 
 func _on_texture_animation_finished() -> void:
 	if texture.animation == "hurt":
+		Globals.score += 100
 		queue_free();

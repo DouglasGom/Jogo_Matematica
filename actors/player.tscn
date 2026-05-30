@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://jvqrylx7ty1s"]
 
-[ext_resource type="Script" uid="uid://oksrlqtjiwar" path="res://levels/player.gd" id="1_mvpqy"]
+[ext_resource type="Script" uid="uid://oksrlqtjiwar" path="res://scripts/player.gd" id="1_mvpqy"]
 [ext_resource type="Texture2D" uid="uid://b00bdj6ntmfkw" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Idle_(32 x 32).png" id="2_1yqc4"]
 [ext_resource type="Texture2D" uid="uid://snm1pug6l5kq" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Jumping_(32 x 32).png" id="3_esgq3"]
 [ext_resource type="Texture2D" uid="uid://c1jvaxektfppa" path="res://assets/sprites/Sprite Pack 5/2 - Lil Wiz/Running_(32 x 32).png" id="4_kjkj0"]
