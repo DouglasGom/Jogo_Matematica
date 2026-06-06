@@ -24,7 +24,7 @@ func _ready() -> void:
 	life_counter.text = str(Globals.player_life)
 	timer_counter.text = str("%02d" % default_minutes) + ":"  + str("%02d" % default_seconds)
 	reset_clock_timer()
-
+ 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

@@ -1,33 +1,30 @@
-[gd_scene format=4 uid="uid://dbeo01wmumvow"]
+[gd_scene format=4 uid="uid://bgya2q5wewefh"]
 
-[ext_resource type="Texture2D" uid="uid://dde2434i0f2px" path="res://assets/sprites/Autumn Forest/Terrain (16 x 16).png" id="1_naeyk"]
-[ext_resource type="Script" uid="uid://bj2l2gfst0ml4" path="res://scripts/world_01.gd" id="1_samdc"]
-[ext_resource type="PackedScene" uid="uid://drwlvkip0iuyu" path="res://coin.tscn" id="1_tii1u"]
-[ext_resource type="Texture2D" uid="uid://ddb8rakm8fy6d" path="res://assets/sprites/Autumn Forest/Autumn_entities (16 x 16).png" id="2_o58wf"]
-[ext_resource type="PackedScene" uid="uid://jvqrylx7ty1s" path="res://actors/player.tscn" id="3_wu64i"]
-[ext_resource type="Texture2D" uid="uid://yy4tejcxjigo" path="res://assets/sprites/Autumn Forest/Background parts/6 - Distant_trees.png" id="4_yso3o"]
-[ext_resource type="Texture2D" uid="uid://cy1etd7v5cmkf" path="res://assets/sprites/Autumn Forest/Background parts/5 - Tree_row_BG_2.png" id="5_tii1u"]
-[ext_resource type="Texture2D" uid="uid://ct0utmk4kqlqq" path="res://assets/sprites/Autumn Forest/Background parts/4 - Tree_row_BG_1.png" id="6_0heyt"]
-[ext_resource type="Texture2D" uid="uid://cbcbbfxyc37hq" path="res://assets/sprites/Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="7_dp75u"]
-[ext_resource type="Texture2D" uid="uid://bqvku7bcx5ug6" path="res://assets/sprites/Autumn Forest/Background parts/2 - Trees.png" id="8_samdc"]
-[ext_resource type="Texture2D" uid="uid://dkfv5u5ggux1t" path="res://assets/sprites/Autumn Forest/Background parts/1 - Leaf_top.png" id="9_l86n5"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="11_0heyt"]
-[ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="13_4qpc8"]
-[ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_dl4q8"]
-[ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="14_gin1p"]
-[ext_resource type="Texture2D" uid="uid://drer1jmq8dnux" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin3.png" id="15_athp7"]
-[ext_resource type="Texture2D" uid="uid://b3sfafiolehn5" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin (16 x 16).png" id="16_dl4q8"]
-[ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="17_gin1p"]
-[ext_resource type="Texture2D" uid="uid://gmyp3p573ure" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/heart.png" id="18_athp7"]
-[ext_resource type="PackedScene" uid="uid://dif5t51nqu7es" path="res://extras/checkpoint.tscn" id="20_8drao"]
-[ext_resource type="PackedScene" uid="uid://bm86op4ufgskf" path="res://extras/pause_menu.tscn" id="21_6ibfi"]
-[ext_resource type="PackedScene" uid="uid://c48krbx76bqeb" path="res://extras/goal.tscn" id="22_jfqd0"]
-[ext_resource type="Script" uid="uid://xcu2kcmy0qjc" path="res://scripts/transition.gd" id="23_5fif6"]
-[ext_resource type="Shader" uid="uid://d27i2grnuic5t" path="res://shaders/transition.gdshader" id="24_ao123"]
-[ext_resource type="Script" uid="uid://b54yjvfdhxptt" path="res://scripts/color_rect.gd" id="25_qannr"]
+[ext_resource type="Script" uid="uid://bj2l2gfst0ml4" path="res://scripts/world_01.gd" id="1_bm8gm"]
+[ext_resource type="Texture2D" uid="uid://yy4tejcxjigo" path="res://assets/sprites/Autumn Forest/Background parts/6 - Distant_trees.png" id="2_87v3f"]
+[ext_resource type="Texture2D" uid="uid://cy1etd7v5cmkf" path="res://assets/sprites/Autumn Forest/Background parts/5 - Tree_row_BG_2.png" id="3_6dwv8"]
+[ext_resource type="Texture2D" uid="uid://ct0utmk4kqlqq" path="res://assets/sprites/Autumn Forest/Background parts/4 - Tree_row_BG_1.png" id="4_2f64h"]
+[ext_resource type="Texture2D" uid="uid://cbcbbfxyc37hq" path="res://assets/sprites/Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="5_qxav0"]
+[ext_resource type="Texture2D" uid="uid://bqvku7bcx5ug6" path="res://assets/sprites/Autumn Forest/Background parts/2 - Trees.png" id="6_y5ite"]
+[ext_resource type="Texture2D" uid="uid://dkfv5u5ggux1t" path="res://assets/sprites/Autumn Forest/Background parts/1 - Leaf_top.png" id="7_7qssf"]
+[ext_resource type="Texture2D" uid="uid://dde2434i0f2px" path="res://assets/sprites/Autumn Forest/Terrain (16 x 16).png" id="8_85etp"]
+[ext_resource type="Texture2D" uid="uid://ddb8rakm8fy6d" path="res://assets/sprites/Autumn Forest/Autumn_entities (16 x 16).png" id="9_8h3ws"]
+[ext_resource type="PackedScene" uid="uid://drwlvkip0iuyu" path="res://coin.tscn" id="10_wjrim"]
+[ext_resource type="PackedScene" uid="uid://jvqrylx7ty1s" path="res://actors/player.tscn" id="11_q6ugd"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="12_ncdwf"]
+[ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_whufi"]
+[ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="14_qauss"]
+[ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="15_epl0q"]
+[ext_resource type="Texture2D" uid="uid://drer1jmq8dnux" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin3.png" id="16_pt1hf"]
+[ext_resource type="Texture2D" uid="uid://b3sfafiolehn5" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin (16 x 16).png" id="17_iek0w"]
+[ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="18_qe4fd"]
+[ext_resource type="Texture2D" uid="uid://gmyp3p573ure" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/heart.png" id="19_n1cxq"]
+[ext_resource type="PackedScene" uid="uid://dif5t51nqu7es" path="res://extras/checkpoint.tscn" id="20_tfcbk"]
+[ext_resource type="PackedScene" uid="uid://bm86op4ufgskf" path="res://extras/pause_menu.tscn" id="21_pk3wa"]
+[ext_resource type="PackedScene" uid="uid://c48krbx76bqeb" path="res://extras/goal.tscn" id="22_oyd7s"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8rs1"]
-texture = ExtResource("1_naeyk")
+texture = ExtResource("8_85etp")
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 3:1/0/physics_layer_0/polygon_0/one_way = true
@@ -139,7 +136,7 @@ texture = ExtResource("1_naeyk")
 4:8/0/physics_layer_0/polygon_0/one_way = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fwd2m"]
-texture = ExtResource("2_o58wf")
+texture = ExtResource("9_8h3ws")
 1:1/size_in_atlas = Vector2i(3, 3)
 1:1/0 = 0
 5:1/size_in_atlas = Vector2i(3, 3)
@@ -163,25 +160,18 @@ sources/1 = SubResource("TileSetAtlasSource_fwd2m")
 
 [sub_resource type="AnimatedTexture" id="AnimatedTexture_8drao"]
 frames = 4
-frame_0/texture = ExtResource("13_4qpc8")
+frame_0/texture = ExtResource("14_qauss")
 frame_0/duration = 0.3
-frame_1/texture = ExtResource("14_gin1p")
+frame_1/texture = ExtResource("15_epl0q")
 frame_1/duration = 0.3
-frame_2/texture = ExtResource("15_athp7")
+frame_2/texture = ExtResource("16_pt1hf")
 frame_2/duration = 0.3
-frame_3/texture = ExtResource("16_dl4q8")
+frame_3/texture = ExtResource("17_iek0w")
 frame_3/duration = 0.3
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_xjnak"]
-shader = ExtResource("24_ao123")
-shader_parameter/lines = 10.0
-shader_parameter/threshold = 0.0
-shader_parameter/line_color_a = Color(1, 1, 1, 1)
-shader_parameter/line_color_b = Color(0, 0, 0, 1)
-
-[node name="world-01" type="Node2D" unique_id=1525187425]
+[node name="world-02" type="Node2D" unique_id=1525187425]
 position = Vector2(-1, 0)
-script = ExtResource("1_samdc")
+script = ExtResource("1_bm8gm")
 
 [node name="camera" type="Camera2D" parent="." unique_id=1497707590]
 position = Vector2(1031, 16)
@@ -192,6 +182,7 @@ rotation_smoothing_speed = 10.0
 editor_draw_drag_margin = true
 
 [node name="BG" type="ParallaxBackground" parent="." unique_id=1885903196]
+visible = false
 
 [node name="06" type="ParallaxLayer" parent="BG" unique_id=1987489500]
 motion_scale = Vector2(0.1, 1)
@@ -199,7 +190,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/06" unique_id=969943854]
 scale = Vector2(2, 2)
-texture = ExtResource("4_yso3o")
+texture = ExtResource("2_87v3f")
 centered = false
 
 [node name="05" type="ParallaxLayer" parent="BG" unique_id=862335969]
@@ -208,7 +199,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/05" unique_id=1339660768]
 scale = Vector2(2, 2)
-texture = ExtResource("5_tii1u")
+texture = ExtResource("3_6dwv8")
 centered = false
 
 [node name="04" type="ParallaxLayer" parent="BG" unique_id=1123080687]
@@ -217,7 +208,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/04" unique_id=1014501600]
 scale = Vector2(2, 2)
-texture = ExtResource("6_0heyt")
+texture = ExtResource("4_2f64h")
 centered = false
 
 [node name="03" type="ParallaxLayer" parent="BG" unique_id=1889922844]
@@ -226,7 +217,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/03" unique_id=457039115]
 scale = Vector2(2, 2)
-texture = ExtResource("7_dp75u")
+texture = ExtResource("5_qxav0")
 centered = false
 
 [node name="02" type="ParallaxLayer" parent="BG" unique_id=1537243076]
@@ -235,7 +226,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/02" unique_id=647414616]
 scale = Vector2(2, 2)
-texture = ExtResource("8_samdc")
+texture = ExtResource("6_y5ite")
 centered = false
 
 [node name="01" type="ParallaxLayer" parent="BG" unique_id=168385278]
@@ -244,7 +235,7 @@ motion_mirroring = Vector2(576, 0)
 
 [node name="texture" type="Sprite2D" parent="BG/01" unique_id=912470623]
 scale = Vector2(2, 2)
-texture = ExtResource("9_l86n5")
+texture = ExtResource("7_7qssf")
 centered = false
 
 [node name="elements" type="TileMapLayer" parent="." unique_id=1209269791]
@@ -259,33 +250,33 @@ tile_set = SubResource("TileSet_or7x1")
 
 [node name="coins" type="Node2D" parent="." unique_id=1813106985]
 
-[node name="coin" parent="coins" unique_id=37420441 instance=ExtResource("1_tii1u")]
+[node name="coin" parent="coins" unique_id=37420441 instance=ExtResource("10_wjrim")]
 position = Vector2(175, 288)
 
-[node name="coin2" parent="coins" unique_id=1545655856 instance=ExtResource("1_tii1u")]
+[node name="coin2" parent="coins" unique_id=1545655856 instance=ExtResource("10_wjrim")]
 position = Vector2(219, 288)
 
-[node name="coin3" parent="coins" unique_id=830367816 instance=ExtResource("1_tii1u")]
+[node name="coin3" parent="coins" unique_id=830367816 instance=ExtResource("10_wjrim")]
 position = Vector2(243, 288)
 
-[node name="coin4" parent="coins" unique_id=1566102553 instance=ExtResource("1_tii1u")]
+[node name="coin4" parent="coins" unique_id=1566102553 instance=ExtResource("10_wjrim")]
 position = Vector2(287, 288)
 
-[node name="coin5" parent="coins" unique_id=984878864 instance=ExtResource("1_tii1u")]
+[node name="coin5" parent="coins" unique_id=984878864 instance=ExtResource("10_wjrim")]
 position = Vector2(295, 319)
 
-[node name="player" parent="." unique_id=618372344 instance=ExtResource("3_wu64i")]
+[node name="player" parent="." unique_id=618372344 instance=ExtResource("11_q6ugd")]
 position = Vector2(52, 300)
 
 [node name="enemies" type="Node2D" parent="." unique_id=630120932]
 
-[node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("11_0heyt")]
+[node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("12_ncdwf")]
 position = Vector2(453, 180)
 
-[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("11_0heyt")]
+[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("12_ncdwf")]
 position = Vector2(509, 183)
 
-[node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("11_0heyt")]
+[node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("12_ncdwf")]
 position = Vector2(857, 325)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=384026004]
@@ -297,7 +288,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("13_dl4q8")
+script = ExtResource("13_whufi")
 default_minutes = 5
 
 [node name="clock_timer" type="Timer" parent="HUD/control" unique_id=92126628]
@@ -332,7 +323,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "0000"
 vertical_alignment = 1
@@ -348,7 +339,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "TEMPO: "
 vertical_alignment = 1
@@ -359,7 +350,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "00:00"
 vertical_alignment = 1
@@ -375,7 +366,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "PONTOS: "
 vertical_alignment = 1
@@ -386,7 +377,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "000000"
 vertical_alignment = 1
@@ -400,7 +391,7 @@ size_flags_vertical = 8
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
-texture = ExtResource("18_athp7")
+texture = ExtResource("19_n1cxq")
 
 [node name="life_separator" type="Label" parent="HUD/control/container/life_container" unique_id=1122761941]
 layout_mode = 2
@@ -408,7 +399,7 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "X"
 vertical_alignment = 1
@@ -419,35 +410,21 @@ size_flags_vertical = 1
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
-theme_override_fonts/font = ExtResource("17_gin1p")
+theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "3"
 vertical_alignment = 1
 
-[node name="checkpoint" parent="." unique_id=1961127388 instance=ExtResource("20_8drao")]
+[node name="checkpoint" parent="." unique_id=1961127388 instance=ExtResource("20_tfcbk")]
 position = Vector2(196, 320)
 
-[node name="checkpoint2" parent="." unique_id=989492529 instance=ExtResource("20_8drao")]
+[node name="checkpoint2" parent="." unique_id=989492529 instance=ExtResource("20_tfcbk")]
 position = Vector2(290, 288)
 
-[node name="pause_menu" parent="." unique_id=1309882036 instance=ExtResource("21_6ibfi")]
+[node name="pause_menu" parent="." unique_id=1309882036 instance=ExtResource("21_pk3wa")]
 visible = false
 
-[node name="goal" parent="." unique_id=788456626 instance=ExtResource("22_jfqd0")]
+[node name="goal" parent="." unique_id=788456626 instance=ExtResource("22_oyd7s")]
 position = Vector2(1287, 368)
-next_level = "res://levels/world_02.tscn"
-
-[node name="transition" type="CanvasLayer" parent="." unique_id=1059905730]
-script = ExtResource("23_5fif6")
-
-[node name="color_rect" type="ColorRect" parent="transition" unique_id=173829222]
-material = SubResource("ShaderMaterial_xjnak")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("25_qannr")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]

@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://c48krbx76bqeb"]
+
+[ext_resource type="Texture2D" uid="uid://dyolph5gokl4b" path="res://assets/sprites/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_fvtmx"]
+[ext_resource type="Script" uid="uid://cxpsyufn01d2c" path="res://scripts/goal.gd" id="1_qro58"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qro58"]
+size = Vector2(30, 21)
+
+[node name="goal" type="Area2D" unique_id=788456626]
+script = ExtResource("1_qro58")
+
+[node name="sprite" type="Sprite2D" parent="." unique_id=1144264702]
+position = Vector2(0, -12)
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("1_fvtmx")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 16)
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1741661874]
+position = Vector2(0, -10.5)
+shape = SubResource("RectangleShape2D_qro58")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
