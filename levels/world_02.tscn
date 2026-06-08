@@ -175,6 +175,7 @@ script = ExtResource("1_bm8gm")
 
 [node name="camera" type="Camera2D" parent="." unique_id=1497707590]
 position = Vector2(1031, 16)
+zoom = Vector2(1.5, 1.5)
 limit_left = -9983829
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0

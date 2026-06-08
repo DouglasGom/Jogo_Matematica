@@ -1,23 +1,63 @@
 [gd_scene format=3 uid="uid://c48krbx76bqeb"]
 
-[ext_resource type="Texture2D" uid="uid://dyolph5gokl4b" path="res://assets/sprites/Mini FX, Items & UI/Common Pick-ups/Treasure_Chest (32 x 16).png" id="1_fvtmx"]
 [ext_resource type="Script" uid="uid://cxpsyufn01d2c" path="res://scripts/goal.gd" id="1_qro58"]
+[ext_resource type="Texture2D" uid="uid://mdtdhu0qwqjs" path="res://assets/sprites/Magic book.png" id="2_qro58"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qro58"]
-size = Vector2(30, 21)
+size = Vector2(27.875, 39.25)
+
+[sub_resource type="Animation" id="Animation_qro58"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3.0000005, -18.999998)]
+}
+
+[sub_resource type="Animation" id="Animation_v74h3"]
+resource_name = "magic_book"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.10828042, 0.5037159),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(3.0000005, -18.999998), Vector2(3, -25)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qgmx5"]
+_data = {
+&"RESET": SubResource("Animation_qro58"),
+&"magic_book": SubResource("Animation_v74h3")
+}
 
 [node name="goal" type="Area2D" unique_id=788456626]
+collision_layer = 2
 script = ExtResource("1_qro58")
 
-[node name="sprite" type="Sprite2D" parent="." unique_id=1144264702]
-position = Vector2(0, -12)
-scale = Vector2(1.5, 1.5)
-texture = ExtResource("1_fvtmx")
-region_enabled = true
-region_rect = Rect2(0, 0, 32, 16)
+[node name="sprite" type="Sprite2D" parent="." unique_id=1435655511]
+position = Vector2(3.0000005, -18.999998)
+scale = Vector2(0.08984375, 0.0947266)
+texture = ExtResource("2_qro58")
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=1741661874]
-position = Vector2(0, -10.5)
+position = Vector2(3.0625, -19.625)
 shape = SubResource("RectangleShape2D_qro58")
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=2070366594]
+libraries/ = SubResource("AnimationLibrary_qgmx5")
+autoplay = &"magic_book"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

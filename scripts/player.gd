@@ -10,6 +10,7 @@ var knockback_vector := Vector2.ZERO
 
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
+@onready var jump_sfx: AudioStreamPlayer = $jump_sfx as AudioStreamPlayer
 
 signal player_has_died()
 
@@ -23,6 +24,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		animation.play('jump')
 		is_jumping = true
+		jump_sfx.play()
 	elif is_on_floor():
 		is_jumping = false
 

@@ -25,6 +25,7 @@
 [ext_resource type="Script" uid="uid://xcu2kcmy0qjc" path="res://scripts/transition.gd" id="23_5fif6"]
 [ext_resource type="Shader" uid="uid://d27i2grnuic5t" path="res://shaders/transition.gdshader" id="24_ao123"]
 [ext_resource type="Script" uid="uid://b54yjvfdhxptt" path="res://scripts/color_rect.gd" id="25_qannr"]
+[ext_resource type="AudioStream" uid="uid://d0wyur43ghrdd" path="res://assets/sounds/normal.mp3" id="26_ao123"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j8rs1"]
 texture = ExtResource("1_naeyk")
@@ -185,6 +186,7 @@ script = ExtResource("1_samdc")
 
 [node name="camera" type="Camera2D" parent="." unique_id=1497707590]
 position = Vector2(1031, 16)
+zoom = Vector2(1.5, 1.5)
 limit_left = -9983829
 position_smoothing_enabled = true
 position_smoothing_speed = 10.0
@@ -274,8 +276,12 @@ position = Vector2(287, 288)
 [node name="coin5" parent="coins" unique_id=984878864 instance=ExtResource("1_tii1u")]
 position = Vector2(295, 319)
 
+[node name="goal" parent="." unique_id=788456626 instance=ExtResource("22_jfqd0")]
+position = Vector2(1298, 337)
+next_level = "res://levels/world_02.tscn"
+
 [node name="player" parent="." unique_id=618372344 instance=ExtResource("3_wu64i")]
-position = Vector2(52, 300)
+position = Vector2(70, 228)
 
 [node name="enemies" type="Node2D" parent="." unique_id=630120932]
 
@@ -333,7 +339,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "0000"
 vertical_alignment = 1
 
@@ -349,7 +355,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "TEMPO: "
 vertical_alignment = 1
 
@@ -360,7 +366,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "00:00"
 vertical_alignment = 1
 
@@ -376,7 +382,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "PONTOS: "
 vertical_alignment = 1
 
@@ -387,7 +393,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "000000"
 vertical_alignment = 1
 
@@ -409,7 +415,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "X"
 vertical_alignment = 1
 
@@ -420,7 +426,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/line_spacing = 5
 theme_override_constants/outline_size = 5
 theme_override_fonts/font = ExtResource("17_gin1p")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 24
 text = "3"
 vertical_alignment = 1
 
@@ -432,10 +438,6 @@ position = Vector2(290, 288)
 
 [node name="pause_menu" parent="." unique_id=1309882036 instance=ExtResource("21_6ibfi")]
 visible = false
-
-[node name="goal" parent="." unique_id=788456626 instance=ExtResource("22_jfqd0")]
-position = Vector2(1287, 368)
-next_level = "res://levels/world_02.tscn"
 
 [node name="transition" type="CanvasLayer" parent="." unique_id=1059905730]
 script = ExtResource("23_5fif6")
@@ -449,5 +451,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("25_qannr")
 metadata/_edit_use_anchors_ = true
+
+[node name="bg_music" type="AudioStreamPlayer" parent="." unique_id=1685781262]
+stream = ExtResource("26_ao123")
+volume_db = -8.603
+autoplay = true
 
 [connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]
