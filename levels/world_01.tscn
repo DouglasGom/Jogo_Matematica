@@ -175,10 +175,8 @@ frame_3/duration = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjnak"]
 shader = ExtResource("24_ao123")
-shader_parameter/lines = 10.0
-shader_parameter/threshold = 0.0
-shader_parameter/line_color_a = Color(1, 1, 1, 1)
-shader_parameter/line_color_b = Color(0, 0, 0, 1)
+shader_parameter/progress = 0.0
+shader_parameter/fade_color = Color(0, 0, 0, 1)
 
 [node name="world-01" type="Node2D" unique_id=1525187425]
 position = Vector2(-1, 0)
@@ -449,6 +447,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0, 0, 0, 0.8352941)
 script = ExtResource("25_qannr")
 metadata/_edit_use_anchors_ = true
 
