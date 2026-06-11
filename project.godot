@@ -26,6 +26,10 @@ window/size/viewport_width=840
 window/size/viewport_height=420
 window/stretch/mode="viewport"
 
+[dotnet]
+
+project/assembly_name="Jogo"
+
 [layer_names]
 
 2d_physics/layer_1="player"

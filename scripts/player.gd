@@ -11,6 +11,7 @@ var knockback_vector := Vector2.ZERO
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer = $jump_sfx as AudioStreamPlayer
+@onready var body := $body as CharacterBody2D
 
 signal player_has_died()
 
@@ -72,6 +73,9 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 			take_damage(Vector2(-200, -200))
 		elif $ray_left.is_colliding():
 			take_damage(Vector2(200, -200))
+		elif body.is_in_group("fireball"):
+			#dano com a bola de fogo do microondas
+			body.queue_free()
 		
 func follow_camera(camera):
 	var camera_path = camera.get_path()

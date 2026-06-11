@@ -11,10 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cbcbbfxyc37hq" path="res://assets/sprites/Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="7_dp75u"]
 [ext_resource type="Texture2D" uid="uid://bqvku7bcx5ug6" path="res://assets/sprites/Autumn Forest/Background parts/2 - Trees.png" id="8_samdc"]
 [ext_resource type="Texture2D" uid="uid://dkfv5u5ggux1t" path="res://assets/sprites/Autumn Forest/Background parts/1 - Leaf_top.png" id="9_l86n5"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="11_0heyt"]
 [ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="13_4qpc8"]
 [ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_dl4q8"]
 [ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="14_gin1p"]
+[ext_resource type="PackedScene" uid="uid://dm0q2of6byogc" path="res://actors/robot-enemy.tscn" id="14_qannr"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/micro-enemy.tscn" id="14_xjnak"]
 [ext_resource type="Texture2D" uid="uid://drer1jmq8dnux" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin3.png" id="15_athp7"]
 [ext_resource type="Texture2D" uid="uid://b3sfafiolehn5" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin (16 x 16).png" id="16_dl4q8"]
 [ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="17_gin1p"]
@@ -175,8 +176,8 @@ frame_3/duration = 0.3
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_xjnak"]
 shader = ExtResource("24_ao123")
-shader_parameter/progress = 0.0
 shader_parameter/fade_color = Color(0, 0, 0, 1)
+shader_parameter/alpha = 0.0
 
 [node name="world-01" type="Node2D" unique_id=1525187425]
 position = Vector2(-1, 0)
@@ -283,14 +284,14 @@ position = Vector2(70, 228)
 
 [node name="enemies" type="Node2D" parent="." unique_id=630120932]
 
-[node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("11_0heyt")]
-position = Vector2(453, 180)
+[node name="robot-enemy" parent="enemies" unique_id=860126163 instance=ExtResource("14_qannr")]
+position = Vector2(490, 364)
 
-[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("11_0heyt")]
-position = Vector2(509, 183)
+[node name="robot-enemy2" parent="enemies" unique_id=648335058 instance=ExtResource("14_qannr")]
+position = Vector2(689, 369)
 
-[node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("11_0heyt")]
-position = Vector2(857, 325)
+[node name="micro-enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("14_xjnak")]
+position = Vector2(1001, 337)
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=384026004]
 
@@ -445,6 +446,10 @@ material = SubResource("ShaderMaterial_xjnak")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 95.0
+offset_top = -1.0
+offset_right = 95.0
+offset_bottom = -1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.8352941)

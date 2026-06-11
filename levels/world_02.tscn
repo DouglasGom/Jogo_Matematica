@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ddb8rakm8fy6d" path="res://assets/sprites/Autumn Forest/Autumn_entities (16 x 16).png" id="9_8h3ws"]
 [ext_resource type="PackedScene" uid="uid://drwlvkip0iuyu" path="res://coin.tscn" id="10_wjrim"]
 [ext_resource type="PackedScene" uid="uid://jvqrylx7ty1s" path="res://actors/player.tscn" id="11_q6ugd"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="12_ncdwf"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/micro-enemy.tscn" id="12_ncdwf"]
 [ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_whufi"]
 [ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="14_qauss"]
 [ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="15_epl0q"]
@@ -273,9 +273,6 @@ position = Vector2(52, 300)
 
 [node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("12_ncdwf")]
 position = Vector2(453, 180)
-
-[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("12_ncdwf")]
-position = Vector2(509, 183)
 
 [node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("12_ncdwf")]
 position = Vector2(857, 325)
