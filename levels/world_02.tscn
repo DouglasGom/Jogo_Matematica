@@ -269,17 +269,6 @@ position = Vector2(295, 319)
 [node name="player" parent="." unique_id=618372344 instance=ExtResource("11_q6ugd")]
 position = Vector2(52, 300)
 
-[node name="enemies" type="Node2D" parent="." unique_id=630120932]
-
-[node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("12_ncdwf")]
-position = Vector2(453, 180)
-
-[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("12_ncdwf")]
-position = Vector2(509, 183)
-
-[node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("12_ncdwf")]
-position = Vector2(857, 325)
-
 [node name="HUD" type="CanvasLayer" parent="." unique_id=384026004]
 
 [node name="control" type="Control" parent="HUD" unique_id=2066771121]
@@ -300,6 +289,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 7.0
+offset_top = 7.0
+offset_right = 7.0
+offset_bottom = 7.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 8
@@ -415,6 +408,17 @@ theme_override_fonts/font = ExtResource("18_qe4fd")
 theme_override_font_sizes/font_size = 16
 text = "3"
 vertical_alignment = 1
+
+[node name="enemies" type="Node2D" parent="." unique_id=630120932]
+
+[node name="enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("12_ncdwf")]
+position = Vector2(440, 194)
+
+[node name="enemy2" parent="enemies" unique_id=310221101 instance=ExtResource("12_ncdwf")]
+position = Vector2(576, 220)
+
+[node name="enemy3" parent="enemies" unique_id=990327968 instance=ExtResource("12_ncdwf")]
+position = Vector2(857, 325)
 
 [node name="checkpoint" parent="." unique_id=1961127388 instance=ExtResource("20_tfcbk")]
 position = Vector2(196, 320)

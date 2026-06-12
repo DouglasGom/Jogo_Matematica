@@ -9,7 +9,7 @@ func _ready() -> void:
 	Globals.player = player
 	Globals.player.follow_camera(camera)
 	Globals.player.player_has_died.connect(reload_game)
-	control.time_is_up.connect(reload_game)
+	control.time_is_up.connect(game_over)
 	
 	# Se o jogador já passou por um checkpoint antes do reload
 	if Globals.current_checkpoint_pos != null:
@@ -22,4 +22,15 @@ func _ready() -> void:
 
 func reload_game():
 	await get_tree().create_timer(1.0).timeout
-	get_tree().reload_current_scene()
+	
+	# Subtrai 1 vida (caso você não esteja fazendo isso no script do player)
+	Globals.player_life -= 1
+	
+	# Checa se as vidas acabaram
+	if Globals.player_life <= 0:
+		game_over()
+	else:
+		get_tree().reload_current_scene() 
+
+func game_over():
+	get_tree().change_scene_to_file("res://extras/game_over.tscn")
