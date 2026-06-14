@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dmncuyh8p631y"]
+
+[ext_resource type="Texture2D" uid="uid://b30x7k7qwuc8" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/spritesheet.png" id="1_c6sid"]
+[ext_resource type="Script" uid="uid://bpfi6ckxh8m0k" path="res://scripts/boss_projectile.gd" id="1_sbey6"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_sbey6"]
+radius = 10.02085
+height = 46.034435
+
+[node name="boss_projectile" type="Area2D" unique_id=1359799551]
+script = ExtResource("1_sbey6")
+
+[node name="shoot" type="Sprite2D" parent="." unique_id=810721874]
+texture = ExtResource("1_c6sid")
+flip_h = true
+region_enabled = true
+region_rect = Rect2(138, 0, 52, 32)
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1343264612]
+position = Vector2(-1.0000005, 1)
+rotation = -1.5471485
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("CapsuleShape2D_sbey6")
+
+[node name="shoot_destroy" type="VisibleOnScreenNotifier2D" parent="." unique_id=1569438614]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="shoot_destroy" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

@@ -23,14 +23,13 @@ func _ready() -> void:
 func reload_game():
 	await get_tree().create_timer(1.0).timeout
 	
-	# Subtrai 1 vida (caso você não esteja fazendo isso no script do player)
-	Globals.player_life -= 1
+	# APAGAMOS O "Globals.player_life -= 1" DAQUI!
+	# O player já perde a vida na função take_damage agora.
 	
-	# Checa se as vidas acabaram
 	if Globals.player_life <= 0:
 		game_over()
 	else:
-		get_tree().reload_current_scene() 
+		get_tree().reload_current_scene()
 
 func game_over():
 	get_tree().change_scene_to_file("res://extras/game_over.tscn")
