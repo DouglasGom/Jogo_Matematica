@@ -30,6 +30,7 @@
 [ext_resource type="Texture2D" uid="uid://ebyynywwh2r4" path="res://assets/sprites/items/ChatGPT Image 11 de jun. de 2026, 12_21_38.png" id="27_qannr"]
 [ext_resource type="Texture2D" uid="uid://e7uel224cqo0" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="27_xjnak"]
 [ext_resource type="PackedScene" uid="uid://cd57d6mxedgxr" path="res://actors/boss.tscn" id="30_14a6h"]
+[ext_resource type="PackedScene" uid="uid://bmhnch0nljeul" path="res://extras/question_screen.tscn" id="31_imfvm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xjnak"]
 texture = ExtResource("1_naeyk")
@@ -265,7 +266,7 @@ tile_map_data = PackedByteArray("AAAAABgAAAAEAAMAAAAAABkAAAAEAAMAAAAAABoAAAAEAAM
 tile_set = SubResource("TileSet_or7x1")
 
 [node name="goal" parent="." unique_id=788456626 instance=ExtResource("22_jfqd0")]
-position = Vector2(1298, 337)
+position = Vector2(1026, 360)
 next_level = "res://levels/world_02.tscn"
 
 [node name="HUD" type="CanvasLayer" parent="." unique_id=384026004]
@@ -278,8 +279,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("13_dl4q8")
-default_minutes = 0
-default_seconds = 30
+default_minutes = 5
 
 [node name="clock_timer" type="Timer" parent="HUD/control" unique_id=92126628]
 autostart = true
@@ -465,6 +465,7 @@ autoplay = true
 [node name="warning_sign" type="Node2D" parent="." unique_id=367952783]
 position = Vector2(644, 331)
 script = ExtResource("27_gmex4")
+dialog_text = Array[String](["Olá", "aventureiro"])
 
 [node name="texture" type="Sprite2D" parent="warning_sign" unique_id=416690179]
 position = Vector2(0, -15)
@@ -485,12 +486,41 @@ collision_layer = 2
 position = Vector2(0.5, 6.5)
 shape = SubResource("RectangleShape2D_gmex4")
 
+[node name="warning_sign2" type="Node2D" parent="." unique_id=1749262994]
+position = Vector2(827, 331)
+script = ExtResource("27_gmex4")
+dialog_text = Array[String](["frase", "2"])
+
+[node name="texture" type="Sprite2D" parent="warning_sign2" unique_id=661313061]
+position = Vector2(0, -15)
+texture = ExtResource("27_xjnak")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="board" type="Sprite2D" parent="warning_sign2" unique_id=408716079]
+position = Vector2(1, 22)
+scale = Vector2(0.04, 0.04)
+texture = ExtResource("27_qannr")
+
+[node name="area_sign" type="Area2D" parent="warning_sign2" unique_id=1993715905]
+position = Vector2(-1, 14)
+collision_layer = 2
+
+[node name="collision" type="CollisionShape2D" parent="warning_sign2/area_sign" unique_id=1409739455]
+position = Vector2(0.5, 6.5)
+shape = SubResource("RectangleShape2D_gmex4")
+
 [node name="player" parent="." unique_id=618372344 instance=ExtResource("3_wu64i")]
-position = Vector2(1664, 338)
+position = Vector2(97, 249)
 
 [node name="boss" parent="." unique_id=1454043902 instance=ExtResource("30_14a6h")]
-position = Vector2(2035, 327)
+position = Vector2(2005, 305)
+
+[node name="question_screen" parent="." unique_id=513991955 instance=ExtResource("31_imfvm")]
+visible = false
 
 [connection signal="timeout" from="HUD/control/clock_timer" to="HUD/control" method="_on_clock_timer_timeout"]
 [connection signal="body_entered" from="warning_sign/area_sign" to="warning_sign" method="_on_area_sign_body_entered"]
 [connection signal="body_exited" from="warning_sign/area_sign" to="warning_sign" method="_on_area_sign_body_exited"]
+[connection signal="body_entered" from="warning_sign2/area_sign" to="warning_sign2" method="_on_area_sign_body_entered"]
+[connection signal="body_exited" from="warning_sign2/area_sign" to="warning_sign2" method="_on_area_sign_body_exited"]

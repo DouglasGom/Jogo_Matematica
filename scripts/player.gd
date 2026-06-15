@@ -11,6 +11,8 @@ var is_invulnerable := false
 @export var projectile_scene: PackedScene
 var is_attacking := false
 
+var can_attack := false
+
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer = $jump_sfx as AudioStreamPlayer
@@ -32,11 +34,11 @@ func _physics_process(delta: float) -> void:
 		is_jumping = false
 		
 		# Controlo do ataque
-	if Input.is_action_just_pressed("player_attack") and not is_attacking:
+	if Input.is_action_just_pressed("player_attack") and not is_attacking and can_attack:
 		perform_attack()
 
 	# Pega a direção do input e controla o movimento/desaceleração
-	direction = Input.get_axis("ui_left", "ui_right")
+	direction = Input.get_axis("move_left", "move_right")
 	
 	if direction != 0:
 		velocity.x = direction * SPEED
@@ -77,10 +79,16 @@ func _on_hurtbox_body_entered(body: Node2D) -> void:
 	if not body.is_in_group("enemies"):
 		return
 		
+	# NOVO: Descobre se quem encostou foi o boss ou outro inimigo
+	var damage_source = "Inimigo Comum"
+	if body.name == "boss":
+		damage_source = "Boss"
+		
 	if $ray_right.is_colliding():
-		take_damage(Vector2(-200, -200), 0.25, "Corpo a Corpo - Lado Direito")
+		take_damage(Vector2(-200, -200), 0.25, damage_source)
 	elif $ray_left.is_colliding():
-		take_damage(Vector2(200, -200), 0.25, "Corpo a Corpo - Lado Esquerdo")
+		take_damage(Vector2(200, -200), 0.25, damage_source)
+		
 
 func follow_camera(camera):
 	var camera_path = camera.get_path()
@@ -98,8 +106,8 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25, source := "De
 	# Só morre e some SE a vida realmente zerar
 	if Globals.player_life <= 0:
 		queue_free()
-		emit_signal("player_has_died")
-		return 
+		emit_signal("player_has_died", source) # NOVO: Manda a causa da morte!
+		return
 	
 	# Se ainda tem vida, faz o empurrão e pisca vermelho
 	if knocback_force != Vector2.ZERO:
@@ -131,3 +139,7 @@ func perform_attack():
 func _on_anim_animation_finished() -> void:
 	if animation.animation == "attack":
 		is_attacking = false
+
+func enable_attack():
+	can_attack = true
+	print("Poder de ataque liberado!")

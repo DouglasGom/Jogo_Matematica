@@ -4,7 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://djqixlou4fibw" path="res://assets/sprites/characters/Boss/Military Incursion Bot Sprite Sheet.png" id="1_xpy12"]
 [ext_resource type="PackedScene" uid="uid://dmncuyh8p631y" path="res://extras/boss_projectile.tscn" id="2_0p0qu"]
 [ext_resource type="Texture2D" uid="uid://climupx02ckpv" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/progress.png" id="4_icotd"]
-[ext_resource type="Texture2D" uid="uid://bb0efrgtbsppa" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/progress_green.png" id="5_fmcrt"]
+[ext_resource type="Texture2D" uid="uid://cf0p55ubc622y" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/bar_red.png" id="5_icotd"]
+[ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="6_fmcrt"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ttay5"]
 atlas = ExtResource("1_xpy12")
@@ -276,41 +277,62 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xpy12"]
-size = Vector2(71, 70)
+size = Vector2(108.5, 103.5)
 
 [node name="boss" type="CharacterBody2D" unique_id=1454043902]
-position = Vector2(2003, 381)
+position = Vector2(1583, 398)
 script = ExtResource("1_ttay5")
 projectile_scene = ExtResource("2_0p0qu")
 
 [node name="anim" type="AnimatedSprite2D" parent="." unique_id=2063055583 groups=["enemies"]]
+scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_kwt33")
-animation = &"hurt"
+animation = &"idle"
 autoplay = "idle"
 flip_h = true
 
 [node name="collision" type="CollisionShape2D" parent="." unique_id=252262050]
-position = Vector2(1.5, 7)
+position = Vector2(2, 11.75)
 shape = SubResource("RectangleShape2D_xpy12")
 
 [node name="attack_timer" type="Timer" parent="." unique_id=891403906]
 wait_time = 2.0
-autostart = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=2049415076]
-scale = Vector2(0.2, 0.2)
-transform = Transform2D(0.2, 0, 0, 0.2, 0, 0)
-follow_viewport_enabled = true
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=160279628]
+rect = Rect2(-52, -40, 108, 103)
 
-[node name="boss_health_bar" type="TextureProgressBar" parent="CanvasLayer" unique_id=1325794157]
-offset_left = 9520.0
-offset_top = 1390.0
-offset_right = 10637.0
-offset_bottom = 1460.0
-max_value = 5.0
-value = 3.0
+[node name="boss_health_bar" type="TextureProgressBar" parent="." unique_id=1325794157]
+offset_left = -99.0
+offset_top = -48.0
+offset_right = 1018.0
+offset_bottom = 22.0
+scale = Vector2(0.17881937, -0.17832619)
+value = 60.0
+fill_mode = 1
 texture_under = ExtResource("4_icotd")
-texture_progress = ExtResource("5_fmcrt")
+texture_progress = ExtResource("5_icotd")
+
+[node name="BossUI" type="CanvasLayer" parent="." unique_id=977885558]
+
+[node name="timer_label" type="Label" parent="BossUI" unique_id=445681814]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -21.0
+offset_right = 21.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("6_fmcrt")
+theme_override_font_sizes/font_size = 24
+text = "
+
+
+10:00"
+vertical_alignment = 1
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="timeout" from="attack_timer" to="." method="_on_attack_timer_timeout"]
+[connection signal="screen_entered" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
