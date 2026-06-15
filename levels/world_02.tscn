@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://pwoca0u0cgkb" path="res://assets/sprites/Mini FX, Items & UI/cave.png" id="10_ncdwf"]
 [ext_resource type="PackedScene" uid="uid://drwlvkip0iuyu" path="res://coin.tscn" id="10_wjrim"]
 [ext_resource type="PackedScene" uid="uid://jvqrylx7ty1s" path="res://actors/player.tscn" id="11_q6ugd"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="12_ncdwf"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/micro-enemy.tscn" id="12_ncdwf"]
 [ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_whufi"]
 [ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="14_qauss"]
 [ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="15_epl0q"]
