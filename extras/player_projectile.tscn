@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bbmvevm3rychc"]
 
-[ext_resource type="Script" uid="uid://ckxogxgxjjmp0" path="res://player_projectile.gd" id="1_kj25r"]
+[ext_resource type="Script" uid="uid://ckxogxgxjjmp0" path="res://scripts/player_projectile.gd" id="1_kj25r"]
 [ext_resource type="Texture2D" uid="uid://cf6jja6mk146r" path="res://assets/sprites/characters/Lil Wiz/Magical_Orbs_Spell_(32 x 32).png" id="2_cvgjl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a4s6i"]

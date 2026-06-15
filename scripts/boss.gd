@@ -19,17 +19,14 @@ var current_checkpoint_in_question := -1
 
 var facing_direction := -1
 
-# --- VARIÁVEIS DO TIMER (NOVO) ---
-var time_left := 600.0 # 600 segundos = 10 minutos
+var time_left := 600.0 
 var is_timer_active := false
 @onready var timer_label: Label = $BossUI/timer_label
-# ---------------------------------
 
-# Puxa a gravidade padrão configurada no seu Godot
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 signal question_time_triggered()
-signal boss_fight_started() # NOVO SINAL
+signal boss_fight_started()
 
 func _ready() -> void:
 	anim.play("idle")
@@ -40,34 +37,27 @@ func _ready() -> void:
 		health_bar.value = current_health
 		health_bar.hide() 
 	
-	# Esconde o timer no início (NOVO)
 	if timer_label != null:
 		timer_label.hide()
 
-# --- NOVA FUNÇÃO DE FÍSICA PARA O KNOCKBACK ---
 func _physics_process(delta: float) -> void:
-	# Aplica a gravidade para ele voltar ao chão após o empurrão
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	else:
-		# Se estiver no chão, vai parando devagarzinho (atrito)
 		velocity.x = move_toward(velocity.x, 0, 600 * delta)
 
 	move_and_slide()
 
 func _process(delta: float) -> void:
-	# Só diminui o tempo se a luta começou e o boss estiver vivo
 	if is_timer_active and current_state != States.DEAD:
 		time_left -= delta
 		
-		# O tempo acabou! Game Over.
 		if time_left <= 0:
 			time_left = 0
 			is_timer_active = false
 			print("O tempo acabou! Game Over.")
 			get_tree().change_scene_to_file("res://extras/game_over.tscn")
 			
-		# Atualiza o texto na tela no formato MM:SS
 		if timer_label != null:
 			var minutes = int(time_left) / 60
 			var seconds = int(time_left) % 60
@@ -77,16 +67,13 @@ func _on_visible_on_screen_notifier_2d_screen_entered() -> void:
 	if health_bar != null and current_state != States.DEAD:
 		health_bar.show()
 		
-	# Inicia e mostra o timer na primeira vez que vir o boss
 	if not is_timer_active and current_state != States.DEAD and time_left > 0:
 		is_timer_active = true
 		if timer_label != null:
 			timer_label.show()
 			
-		# Grita que a luta começou!
 		emit_signal("boss_fight_started")
 		
-		# NOVO: O Boss só começa a atirar agora!
 		attack_timer.start()
 
 func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
@@ -95,12 +82,11 @@ func _on_visible_on_screen_notifier_2d_screen_exited() -> void:
 	if health_bar != null:
 		health_bar.hide()
 
-# --- FUNÇÕES DE DANO E ATAQUE ---
 func take_damage(amount := 1) -> void:
 	if current_state == States.HURT or current_state == States.DEAD or current_state == States.RECOVERY:
 		return
 		
-	current_health -= amount*10
+	current_health -= amount
 	if current_health < 0:
 		current_health = 0 
 		
@@ -113,11 +99,8 @@ func take_damage(amount := 1) -> void:
 	anim.play("hurt")
 	
 	
-	# --- EFEITOS DO IMPACTO (NOVO) ---
-	anim.modulate = Color(1, 0, 0, 1) # Deixa a textura totalmente vermelha
+	anim.modulate = Color(1, 0, 0, 1) 
 	
-	# Joga o boss para cima (eixo Y negativo) e para trás (invertendo a direção que ele olha)
-	# Pode aumentar ou diminuir o 150 e o 250 se quiser o empurrão mais forte/fraco!
 	velocity = Vector2(-facing_direction * 150, -250) 
 
 func trigger_question() -> void:
@@ -163,13 +146,11 @@ func die() -> void:
 	current_state = States.DEAD
 	attack_timer.stop() 
 	
-	# Garante que ele volta à cor original (branca) caso morra
 	anim.modulate = Color(1, 1, 1, 1) 
 	
 	if health_bar != null:
 		health_bar.hide() 
 		
-	# Esconde o timer da vitória!
 	if timer_label != null:
 		timer_label.hide()
 	
@@ -186,7 +167,6 @@ func die() -> void:
 	if health_bar != null:
 		health_bar.hide() 
 		
-	# Esconde o timer da vitória! (NOVO)
 	if timer_label != null:
 		timer_label.hide()
 	
@@ -199,7 +179,6 @@ func die() -> void:
 	current_state = States.DEAD
 	attack_timer.stop() 
 	
-	# Garante que ele volta à cor original (branca) caso morra, para a explosão não ser vermelha
 	anim.modulate = Color(1, 1, 1, 1) 
 	
 	if health_bar != null:
@@ -207,14 +186,12 @@ func die() -> void:
 	
 	anim.play("destroy")
 
-# --- ANIMAÇÕES E TIROS ---
 func _on_anim_animation_finished() -> void:
 	if current_state == States.ATTACK_SHOOT and anim.animation == "attack":
 		current_state = States.IDLE
 		anim.play("idle")
 		
 	elif current_state == States.HURT and anim.animation == "hurt":
-		# Limpa a cor vermelha quando a dor acaba (NOVO)
 		anim.modulate = Color(1, 1, 1, 1) 
 		
 		var hit_checkpoint = false

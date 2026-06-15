@@ -13,7 +13,7 @@ config_version=5
 config/name="Jogo"
 run/main_scene="uid://dbeo01wmumvow"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="uid://c3fqncvlekd2l"
 
 [autoload]
 

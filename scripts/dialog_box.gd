@@ -17,12 +17,10 @@ signal text_display_finished()
 func display_text(text_to_display: String):
 	text = text_to_display
 	
-	# Colocamos todo o texto, mas escondemos as letras
 	text_label.text = text_to_display
 	text_label.visible_characters = 0 
 	letter_index = 0 
 	
-	# TRUQUE ANTI-PISCAR: Deixa a caixa 100% invisível temporariamente
 	modulate.a = 0 
 	
 	await get_tree().process_frame
@@ -33,11 +31,9 @@ func display_text(text_to_display: String):
 		await get_tree().process_frame 
 		custom_minimum_size.y = size.y
 		
-	# Faz a matemática para subir a caixa acima da placa
 	global_position.x -= size.x / 2
 	global_position.y -= size.y + 24
 	
-	# Agora que ela está no lugar certo, nós a revelamos!
 	modulate.a = 1
 	
 	display_letter()
@@ -46,7 +42,6 @@ func display_letter():
 	if letter_index >= text.length():
 		return
 		
-	# Aumenta a quantidade de letras reveladas na tela
 	letter_index += 1
 	text_label.visible_characters = letter_index
 	
@@ -55,7 +50,6 @@ func display_letter():
 		letter_time_display.stop() 
 		return
 		
-	# Verifica qual foi a letra que acabou de aparecer
 	match text[letter_index - 1]:
 		"!", "?", ",", ".":
 			letter_time_display.start(punctuation_display_time)

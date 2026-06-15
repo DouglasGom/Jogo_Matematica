@@ -11,11 +11,11 @@
 [ext_resource type="Texture2D" uid="uid://cbcbbfxyc37hq" path="res://assets/sprites/Autumn Forest/Background parts/3 - Bottom_leaf_piles.png" id="7_dp75u"]
 [ext_resource type="Texture2D" uid="uid://bqvku7bcx5ug6" path="res://assets/sprites/Autumn Forest/Background parts/2 - Trees.png" id="8_samdc"]
 [ext_resource type="Texture2D" uid="uid://dkfv5u5ggux1t" path="res://assets/sprites/Autumn Forest/Background parts/1 - Leaf_top.png" id="9_l86n5"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="11_0heyt"]
 [ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="13_4qpc8"]
 [ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_dl4q8"]
 [ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="14_gin1p"]
-[ext_resource type="PackedScene" uid="uid://dm0q2of6byogc" path="res://actors/robot-enemy.tscn" id="14_qannr"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/micro-enemy.tscn" id="14_xjnak"]
+[ext_resource type="PackedScene" path="res://actors/robot-enemy.tscn" id="14_qannr"]
 [ext_resource type="Texture2D" uid="uid://drer1jmq8dnux" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin3.png" id="15_athp7"]
 [ext_resource type="Texture2D" uid="uid://b3sfafiolehn5" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin (16 x 16).png" id="16_dl4q8"]
 [ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="17_gin1p"]
@@ -27,7 +27,7 @@
 [ext_resource type="Shader" uid="uid://d27i2grnuic5t" path="res://shaders/transition.gdshader" id="24_ao123"]
 [ext_resource type="Script" uid="uid://b54yjvfdhxptt" path="res://scripts/color_rect.gd" id="25_qannr"]
 [ext_resource type="AudioStream" uid="uid://d0wyur43ghrdd" path="res://assets/sounds/normal.mp3" id="26_ao123"]
-[ext_resource type="Script" uid="uid://b5i2o5jqhxhql" path="res://warning_sign.gd" id="27_gmex4"]
+[ext_resource type="Script" uid="uid://b5i2o5jqhxhql" path="res://scripts/warning_sign.gd" id="27_gmex4"]
 [ext_resource type="Texture2D" uid="uid://ebyynywwh2r4" path="res://assets/sprites/items/ChatGPT Image 11 de jun. de 2026, 12_21_38.png" id="27_qannr"]
 [ext_resource type="Texture2D" uid="uid://e7uel224cqo0" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="27_xjnak"]
 [ext_resource type="FontFile" uid="uid://rgucvbowmmnk" path="res://extras/PressStart2P-Regular.ttf" id="28_imfvm"]
@@ -510,6 +510,9 @@ position = Vector2(2166, 367)
 
 [node name="enemy4" parent="enemies" unique_id=2007065469 instance=ExtResource("11_0heyt")]
 position = Vector2(2525, 358)
+
+[node name="robot-enemy" parent="enemies" unique_id=1931227067 instance=ExtResource("14_qannr")]
+position = Vector2(1514, 364)
 
 [node name="bg_music" type="AudioStreamPlayer" parent="." unique_id=1685781262]
 stream = ExtResource("26_ao123")

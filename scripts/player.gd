@@ -22,31 +22,25 @@ var can_attack := false
 signal player_has_died()
 
 func _physics_process(delta: float) -> void:
-	# Adiciona a gravidade
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Controle do pulo (NO PLAYER.GD)
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		# APAGUE A LINHA: animation.play('jump')
 		is_jumping = true
 		jump_sfx.play()
 	elif is_on_floor():
 		is_jumping = false
 		
-		# Controlo do ataque
 	if Input.is_action_just_pressed("player_attack") and not is_attacking and can_attack:
 		perform_attack()
 
-	# Pega a direção do input e controla o movimento/desaceleração
 	direction = Input.get_axis("move_left", "move_right")
 	
 	if direction != 0:
 		velocity.x = direction * SPEED
 		animation.scale.x = direction
 		
-		# Define a animação correta em movimento
 		#if not is_jumping and is_on_floor():
 			#animation.play('run')
 		#else:
@@ -61,7 +55,6 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _set_state():
-	# Se estiver a atacar, não muda a animação até terminar!
 	if is_attacking:
 		return
 		
@@ -77,11 +70,9 @@ func _set_state():
 
 
 func _on_hurtbox_body_entered(body: Node2D) -> void:
-	# Trava de segurança: só reage se for um inimigo
 	if not body.is_in_group("enemies"):
 		return
 		
-	# NOVO: Descobre se quem encostou foi o boss ou outro inimigo
 	var damage_source = "Inimigo Comum"
 	if body.name == "boss":
 		damage_source = "Boss"
@@ -105,13 +96,11 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25, source := "De
 	
 	print("Dano recebido de: ", source, " | Vidas restantes: ", Globals.player_life)
 	
-	# Só morre e some SE a vida realmente zerar
 	if Globals.player_life <= 0:
 		queue_free()
-		emit_signal("player_has_died", source) # NOVO: Manda a causa da morte!
+		emit_signal("player_has_died", source)
 		return
 	
-	# Se ainda tem vida, faz o empurrão e pisca vermelho
 	if knocback_force != Vector2.ZERO:
 		knockback_vector = knocback_force
 		var knoback_tween := get_tree().create_tween()
@@ -130,12 +119,10 @@ func perform_attack():
 		var proj = projectile_scene.instantiate()
 		get_parent().add_child(proj)
 		
-		# Verifica para que lado o player está virado usando a escala da animação
 		var facing_dir = sign(animation.scale.x)
 		if facing_dir == 0:
 			facing_dir = 1
 			
-		# Coloca a bola de energia um pouco à frente do player
 		proj.global_position = self.global_position + Vector2(facing_dir * 20, 0)
 		proj.direction = facing_dir
 		

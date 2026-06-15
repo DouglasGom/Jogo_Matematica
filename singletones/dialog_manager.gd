@@ -26,7 +26,6 @@ func show_text():
 	dialog_box.text_display_finished.connect(_on_all_text_display)
 	get_tree().root.add_child(dialog_box)
 	
-	# ADICIONE ESTA LINHA: Garante que a caixa seja desenhada na frente de TUDO (Player, Mapa, etc)
 	dialog_box.z_index = 100 
 	
 	dialog_box.global_position = dialog_box_position

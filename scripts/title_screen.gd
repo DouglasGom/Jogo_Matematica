@@ -1,12 +1,10 @@
 extends Control
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Globals.coins = 0
 	Globals.score = 0
 	Globals.player_life = 3
 	
-	# ADICIONE ESTA LINHA: Isso apaga a memória do checkpoint
 	Globals.current_checkpoint_pos = null
 
 

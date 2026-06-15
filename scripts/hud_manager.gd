@@ -9,7 +9,6 @@ extends Control
 var minutes = 0
 var seconds = 0
 
-# Chave de segurança para controlar se o timer padrão está a contar
 var timer_active := true 
 
 @export_range(0,5) var default_minutes := 1
@@ -29,9 +28,8 @@ func _process(delta: float) -> void:
 	score_counter.text = str("%06d" % Globals.score)
 	life_counter.text = str(Globals.player_life)
 
-	# Só emite o sinal de Game Over se o tempo acabar E o timer ainda estiver ativo
 	if timer_active and minutes == 0 and seconds == 0:
-		timer_active = false # Desliga para não emitir o sinal 60 vezes por segundo
+		timer_active = false 
 		emit_signal("time_is_up")
 
 func _on_clock_timer_timeout() -> void:
@@ -46,8 +44,7 @@ func reset_clock_timer():
 	minutes = default_minutes
 	seconds = default_seconds
 
-# NOVA FUNÇÃO: Chamada pelo mundo quando o Boss aparece na câmara
 func hide_and_disable_timer():
 	timer_active = false
-	clock_timer.stop() # Pára o relógio imediatamente
-	$container/timer_container.hide() # Esconde apenas a parte do relógio no HUD
+	clock_timer.stop() 
+	$container/timer_container.hide() 

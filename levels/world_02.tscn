@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://pwoca0u0cgkb" path="res://assets/sprites/Mini FX, Items & UI/cave.png" id="10_ncdwf"]
 [ext_resource type="PackedScene" uid="uid://drwlvkip0iuyu" path="res://coin.tscn" id="10_wjrim"]
 [ext_resource type="PackedScene" uid="uid://jvqrylx7ty1s" path="res://actors/player.tscn" id="11_q6ugd"]
-[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/micro-enemy.tscn" id="12_ncdwf"]
+[ext_resource type="PackedScene" uid="uid://c82wv11bjod3" path="res://actors/enemy.tscn" id="12_ncdwf"]
 [ext_resource type="Script" uid="uid://p7rrujp1fatq" path="res://scripts/hud_manager.gd" id="13_whufi"]
 [ext_resource type="Texture2D" uid="uid://cm24l5fygxvo1" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin1.png" id="14_qauss"]
 [ext_resource type="Texture2D" uid="uid://dcfsijivogwde" path="res://assets/sprites/Mini FX, Items & UI/Coin Separeted/Coin2.png" id="15_epl0q"]
@@ -26,9 +26,10 @@
 [ext_resource type="PackedScene" uid="uid://bm86op4ufgskf" path="res://extras/pause_menu.tscn" id="21_pk3wa"]
 [ext_resource type="Script" uid="uid://b54yjvfdhxptt" path="res://scripts/color_rect.gd" id="21_whufi"]
 [ext_resource type="AudioStream" uid="uid://bc5hdcyqnkk5f" path="res://assets/sounds/battle.wav" id="23_q6ugd"]
+[ext_resource type="PackedScene" path="res://actors/robot-enemy.tscn" id="23_whufi"]
 [ext_resource type="PackedScene" uid="uid://cd57d6mxedgxr" path="res://actors/boss.tscn" id="25_epl0q"]
 [ext_resource type="PackedScene" uid="uid://bmhnch0nljeul" path="res://extras/question_screen.tscn" id="26_pt1hf"]
-[ext_resource type="Script" uid="uid://b5i2o5jqhxhql" path="res://warning_sign.gd" id="27_iek0w"]
+[ext_resource type="Script" uid="uid://b5i2o5jqhxhql" path="res://scripts/warning_sign.gd" id="27_iek0w"]
 [ext_resource type="Texture2D" uid="uid://e7uel224cqo0" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/Speech_Emotes (16 x 16).png" id="28_qe4fd"]
 [ext_resource type="Texture2D" uid="uid://ebyynywwh2r4" path="res://assets/sprites/items/ChatGPT Image 11 de jun. de 2026, 12_21_38.png" id="29_n1cxq"]
 [ext_resource type="FontFile" uid="uid://rgucvbowmmnk" path="res://extras/PressStart2P-Regular.ttf" id="30_tfcbk"]
@@ -491,20 +492,38 @@ position = Vector2(3508, 270)
 
 [node name="enemies" type="Node2D" parent="." unique_id=630120932]
 
-[node name="enemy2" parent="enemies" unique_id=1867255427 instance=ExtResource("12_ncdwf")]
-position = Vector2(1891, 364)
+[node name="robot-enemy" parent="enemies" unique_id=1946188823 instance=ExtResource("23_whufi")]
+position = Vector2(1348, 253)
 
-[node name="enemy11" parent="enemies" unique_id=1946188823 instance=ExtResource("12_ncdwf")]
-position = Vector2(1336, 243)
+[node name="robot-enemy2" parent="enemies" unique_id=1060078902 instance=ExtResource("23_whufi")]
+position = Vector2(1629, 254)
 
-[node name="enemy12" parent="enemies" unique_id=1930838768 instance=ExtResource("12_ncdwf")]
-position = Vector2(1651, 247)
+[node name="robot-enemy3" parent="enemies" unique_id=1646778815 instance=ExtResource("23_whufi")]
+position = Vector2(1832, 367)
 
-[node name="enemy3" parent="enemies" unique_id=630070501 instance=ExtResource("12_ncdwf")]
-position = Vector2(2166, 367)
+[node name="robot-enemy4" parent="enemies" unique_id=514744622 instance=ExtResource("23_whufi")]
+position = Vector2(2102, 366)
 
-[node name="enemy4" parent="enemies" unique_id=2007065469 instance=ExtResource("12_ncdwf")]
-position = Vector2(2525, 358)
+[node name="robot-enemy5" parent="enemies" unique_id=345499004 instance=ExtResource("23_whufi")]
+position = Vector2(2484, 364)
+
+[node name="robot-enemy6" parent="enemies" unique_id=48275019 instance=ExtResource("23_whufi")]
+position = Vector2(3319, 1294)
+
+[node name="robot-enemy7" parent="enemies" unique_id=174486029 instance=ExtResource("23_whufi")]
+position = Vector2(3429, 1295)
+
+[node name="enemy" parent="enemies" unique_id=1816584606 instance=ExtResource("12_ncdwf")]
+position = Vector2(4436, 1251)
+
+[node name="enemy2" parent="enemies" unique_id=1707047893 instance=ExtResource("12_ncdwf")]
+position = Vector2(4828, 1245)
+
+[node name="enemy3" parent="enemies" unique_id=681300960 instance=ExtResource("12_ncdwf")]
+position = Vector2(5329, 1224)
+
+[node name="enemy4" parent="enemies" unique_id=1133393545 instance=ExtResource("12_ncdwf")]
+position = Vector2(5855, 1233)
 
 [node name="bg_music" type="AudioStreamPlayer" parent="." unique_id=1685781262]
 stream = ExtResource("23_q6ugd")
