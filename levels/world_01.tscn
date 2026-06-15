@@ -626,7 +626,7 @@ theme_override_font_sizes/font_size = 8
 text = "Pressione I"
 
 [node name="player" parent="." unique_id=618372344 instance=ExtResource("3_wu64i")]
-position = Vector2(7101, 68)
+position = Vector2(67, 240)
 
 [node name="checkpoints" type="Node2D" parent="." unique_id=1824634307]
 

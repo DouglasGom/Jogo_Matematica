@@ -15,6 +15,11 @@ var correct_answer_index = 0
 # Banco de dados das suas 5 perguntas
 var questions = [
 	{
+		"text": "4. O que o contador de programa (PC) armazena?",
+		"options": ["O endereço da próxima instrução.", "Os dados da memória", "O resultado da ULA.", "A instrução atual."],
+		"correct": 0
+	},
+	{
 		"text": "1. Converta 00011101 para hexadecimal.",
 		"options": ["A) 1D", "B) 1E", "C) F4", "D) EA"],
 		"correct": 0 
@@ -29,11 +34,7 @@ var questions = [
 		"options": ["Unidirecional", "De controle", "De endereço.", "Bidirecional."],
 		"correct": 3
 	},
-	{
-		"text": "4. O que é o contador de programa (PC)?",
-		"options": ["Armazena o endereço da próxima instrução.", "Armazena os dados da memória", "Armazena o resultado da ULA.", "Armazena a instrução atual."],
-		"correct": 0
-	},
+	
 	{
 		"text": "5. Qual o tipo de acesso da instrução STA:",
 		"options": ["MEM(end) ← PC", "AC ← MEM(end)", "MEM(end) ← AC", "AC ← AC + MEM(end)"],

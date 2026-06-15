@@ -14,6 +14,7 @@ var current_checkpoint_in_question := -1
 @onready var attack_timer: Timer = $attack_timer
 @onready var health_bar: TextureProgressBar = $boss_health_bar
 @onready var boss_hurt: AudioStreamPlayer = $boss_hurt
+@onready var boss_recovery: AudioStreamPlayer = $boss_recovery
 
 
 var facing_direction := -1
@@ -152,6 +153,7 @@ func _on_question_answered(is_correct: bool) -> void:
 			
 		current_state = States.RECOVERY
 		anim.play("recovery")
+		boss_recovery.play()
 
 func die() -> void:
 	if current_state == States.DEAD:
@@ -237,6 +239,7 @@ func _on_anim_animation_finished() -> void:
 		
 	elif current_state == States.DEAD and anim.animation == "destroy":
 		queue_free()
+		get_tree().change_scene_to_file("res://extras/victory.tscn")
 
 func _on_attack_timer_timeout() -> void:
 	if current_state == States.IDLE:

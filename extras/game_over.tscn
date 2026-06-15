@@ -1,8 +1,9 @@
 [gd_scene format=3 uid="uid://blimqr0rh2df6"]
 
 [ext_resource type="Script" uid="uid://cjagkexccu03l" path="res://scripts/game_over.gd" id="1_sl0r1"]
-[ext_resource type="Texture2D" uid="uid://ce2lnqvhoh6v" path="res://assets/sprites/pngwing.com (1).png" id="1_yayf1"]
+[ext_resource type="Texture2D" uid="uid://clk8gin21n0wh" path="res://assets/sprites/Mini FX, Items & UI/Telas do jogo  (1).png" id="3_sl0r1"]
 [ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="3_w5rn8"]
+[ext_resource type="AudioStream" uid="uid://cxsqylfcw2o1k" path="res://assets/sounds/game_over.mp3" id="4_rak5y"]
 
 [sub_resource type="Animation" id="Animation_tq0lo"]
 length = 0.001
@@ -82,18 +83,6 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
 
-[node name="GameOver_title" type="TextureRect" parent="." unique_id=2058357088]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -127.0
-offset_top = -33.0
-offset_right = 120.0
-offset_bottom = 203.0
-grow_horizontal = 2
-texture = ExtResource("1_yayf1")
-
 [node name="restart_button" type="Button" parent="." unique_id=571300474]
 layout_mode = 1
 anchors_preset = 8
@@ -129,6 +118,15 @@ text = "SAIR DO JOGO"
 [node name="anim" type="AnimationPlayer" parent="." unique_id=1265911120]
 libraries/ = SubResource("AnimationLibrary_sl0r1")
 autoplay = &"fade"
+
+[node name="Game Over" type="Sprite2D" parent="." unique_id=487123892]
+position = Vector2(434, 115)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_sl0r1")
+
+[node name="game_over" type="AudioStreamPlayer" parent="." unique_id=1002857482]
+stream = ExtResource("4_rak5y")
+autoplay = true
 
 [connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

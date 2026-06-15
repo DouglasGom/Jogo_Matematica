@@ -299,7 +299,7 @@ position = Vector2(2, 11.75)
 shape = SubResource("RectangleShape2D_xpy12")
 
 [node name="attack_timer" type="Timer" parent="." unique_id=891403906]
-wait_time = 2.0
+wait_time = 0.5
 
 [node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=160279628]
 rect = Rect2(-52, -40, 108, 103)

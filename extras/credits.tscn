@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://b62gcu8hd44u6"]
+
+[ext_resource type="FontFile" uid="uid://rgucvbowmmnk" path="res://extras/PressStart2P-Regular.ttf" id="1_u00yp"]
+[ext_resource type="Script" uid="uid://c0m8otp0a7a0a" path="res://scripts/credits.gd" id="1_wckcn"]
+[ext_resource type="AudioStream" uid="uid://bc4whgax240q" path="res://assets/sounds/credits.mp3" id="2_i4lru"]
+[ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="4_a1m63"]
+
+[sub_resource type="Theme" id="Theme_gqtvc"]
+
+[node name="Credits" type="Control" unique_id=424666759]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wckcn")
+
+[node name="background" type="ColorRect" parent="." unique_id=31797795]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="background" unique_id=1195027338]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -65.5
+offset_right = 77.0
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="Label2" type="Label" parent="background/VBoxContainer" unique_id=83007311]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "ANNA CLARA DIAS CARDOSO
+"
+
+[node name="Label3" type="Label" parent="background/VBoxContainer" unique_id=1612759081]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "DOUGLAS GOMES DE CAMPOS
+"
+
+[node name="Label4" type="Label" parent="background/VBoxContainer" unique_id=755755820]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "GABRIELA ONO WANG
+"
+
+[node name="Label5" type="Label" parent="background/VBoxContainer" unique_id=302250901]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "MARIANA LOPES SILVA RAMOS
+"
+
+[node name="Label6" type="Label" parent="background/VBoxContainer" unique_id=1334823998]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 1
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "YASMIN FERNANDES"
+
+[node name="Label" type="Label" parent="." unique_id=1945107253]
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -77.0
+offset_right = 77.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_u00yp")
+text = "
+DESENVOLVEDORES"
+
+[node name="credits" type="AudioStreamPlayer" parent="." unique_id=1580116744]
+stream = ExtResource("2_i4lru")
+autoplay = true
+
+[node name="back" type="Button" parent="." unique_id=1890509987]
+layout_mode = 0
+offset_left = 332.0
+offset_top = 360.0
+offset_right = 474.0
+offset_bottom = 397.0
+theme = SubResource("Theme_gqtvc")
+theme_override_fonts/font = ExtResource("4_a1m63")
+text = "VOLTAR"
+icon_alignment = 1
+
+[connection signal="pressed" from="back" to="." method="_on_back_pressed"]
