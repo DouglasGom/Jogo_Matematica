@@ -1,0 +1,132 @@
+[gd_scene format=3 uid="uid://blimqr0rh2df6"]
+
+[ext_resource type="Script" uid="uid://cjagkexccu03l" path="res://scripts/game_over.gd" id="1_sl0r1"]
+[ext_resource type="Texture2D" uid="uid://clk8gin21n0wh" path="res://assets/sprites/Mini FX, Items & UI/Telas do jogo  (1).png" id="3_sl0r1"]
+[ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="3_w5rn8"]
+[ext_resource type="AudioStream" uid="uid://cxsqylfcw2o1k" path="res://assets/sounds/game_over.mp3" id="4_rak5y"]
+
+[sub_resource type="Animation" id="Animation_tq0lo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_virji"]
+resource_name = "fade"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.041914687, 0.50285125),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.04436648, 0.505303),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_sl0r1"]
+_data = {
+&"RESET": SubResource("Animation_tq0lo"),
+&"fade": SubResource("Animation_virji")
+}
+
+[node name="GameOver" type="Control" unique_id=108230266]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl0r1")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1644557866]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="restart_button" type="Button" parent="." unique_id=571300474]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -105.0
+offset_top = -30.0
+offset_right = 129.0
+offset_bottom = 42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_w5rn8")
+text = "REINICIAR"
+
+[node name="quit_button" type="Button" parent="." unique_id=193587401]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.0
+offset_top = 66.0
+offset_right = 128.0
+offset_bottom = 132.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_w5rn8")
+text = "SAIR DO JOGO"
+
+[node name="anim" type="AnimationPlayer" parent="." unique_id=1265911120]
+libraries/ = SubResource("AnimationLibrary_sl0r1")
+autoplay = &"fade"
+
+[node name="Game Over" type="Sprite2D" parent="." unique_id=487123892]
+position = Vector2(434, 115)
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("3_sl0r1")
+
+[node name="game_over" type="AudioStreamPlayer" parent="." unique_id=1002857482]
+stream = ExtResource("4_rak5y")
+autoplay = true
+
+[connection signal="pressed" from="restart_button" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="quit_button" to="." method="_on_quit_button_pressed"]

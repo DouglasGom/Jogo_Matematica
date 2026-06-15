@@ -1,9 +1,11 @@
 [gd_scene format=3 uid="uid://c7ken3ejc4ukp"]
 
 [ext_resource type="Script" uid="uid://ba0nvj5j1c3bq" path="res://scripts/title_screen.gd" id="1_pstoc"]
-[ext_resource type="Texture2D" uid="uid://c2j68fgynnoqe" path="res://assets/sprites/bg.png" id="1_vnekc"]
-[ext_resource type="Texture2D" uid="uid://c6r4tim1rgtq5" path="res://assets/sprites/gamename (1).png" id="2_pstoc"]
+[ext_resource type="Texture2D" uid="uid://c2j68fgynnoqe" path="res://assets/sprites/items/bg.png" id="1_vnekc"]
+[ext_resource type="Texture2D" uid="uid://c6r4tim1rgtq5" path="res://assets/sprites/items/gamename (1).png" id="2_pstoc"]
 [ext_resource type="FontFile" uid="uid://52nhfpq86rwl" path="res://extras/Rev Mini Pixel.ttf" id="3_g13cd"]
+[ext_resource type="Texture2D" uid="uid://dk2kw0e0hofyn" path="res://assets/sprites/Mini FX, Items & UI/nomedojgo.png" id="5_idn82"]
+[ext_resource type="AudioStream" uid="uid://dnlw0p4fbdqpv" path="res://assets/sounds/intro.mp3" id="6_urgdl"]
 
 [node name="TitleScreen" type="Control" unique_id=278014961]
 layout_mode = 3
@@ -60,13 +62,14 @@ expand_mode = 2
 
 [node name="anim" type="AnimationPlayer" parent="." unique_id=384317943]
 
-[node name="game_title" type="TextureRect" parent="." unique_id=1936861463]
-layout_mode = 0
-offset_left = 435.0
-offset_top = 98.0
-offset_right = 687.0
-offset_bottom = 350.0
-texture = ExtResource("2_pstoc")
+[node name="Nomedojgo" type="Sprite2D" parent="." unique_id=342213247]
+position = Vector2(506, 221)
+scale = Vector2(2, 2)
+texture = ExtResource("5_idn82")
+
+[node name="title" type="AudioStreamPlayer" parent="." unique_id=1301469125]
+stream = ExtResource("6_urgdl")
+autoplay = true
 
 [connection signal="pressed" from="start" to="." method="_on_start_pressed"]
 [connection signal="pressed" from="credits" to="." method="_on_credits_pressed"]

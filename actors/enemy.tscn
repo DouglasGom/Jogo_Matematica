@@ -224,6 +224,7 @@ size = Vector2(37, 2)
 collision_layer = 5
 collision_mask = 3
 script = ExtResource("1_34jws")
+metadata/_edit_group_ = true
 
 [node name="texture" type="AnimatedSprite2D" parent="." unique_id=553533955]
 position = Vector2(4, -21)

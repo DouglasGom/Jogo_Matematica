@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://bbmvevm3rychc"]
+
+[ext_resource type="Script" uid="uid://ckxogxgxjjmp0" path="res://player_projectile.gd" id="1_kj25r"]
+[ext_resource type="Texture2D" uid="uid://cf6jja6mk146r" path="res://assets/sprites/characters/Lil Wiz/Magical_Orbs_Spell_(32 x 32).png" id="2_cvgjl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4s6i"]
+atlas = ExtResource("2_cvgjl")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_op87o"]
+atlas = ExtResource("2_cvgjl")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bkeig"]
+atlas = ExtResource("2_cvgjl")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7f7hl"]
+atlas = ExtResource("2_cvgjl")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_vjd4u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4s6i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_op87o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bkeig")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7f7hl")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7rp2l"]
+radius = 12.165525
+
+[node name="player_projectile" type="Area2D" unique_id=1076934274]
+script = ExtResource("1_kj25r")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1583495042]
+sprite_frames = SubResource("SpriteFrames_vjd4u")
+autoplay = "default"
+frame_progress = 0.34988782
+
+[node name="collision" type="CollisionShape2D" parent="." unique_id=1534995012]
+shape = SubResource("CircleShape2D_7rp2l")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=326617538]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]

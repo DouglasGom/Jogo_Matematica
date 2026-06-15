@@ -1,14 +1,13 @@
 extends Control
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	Globals.coins = 0
+	Globals.score = 0
+	Globals.player_life = 3
+	
+	# ADICIONE ESTA LINHA: Isso apaga a memória do checkpoint
+	Globals.current_checkpoint_pos = null
 
 
 func _on_start_pressed() -> void:
@@ -16,7 +15,7 @@ func _on_start_pressed() -> void:
 
 
 func _on_credits_pressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://extras/credits.tscn")
 
 
 func _on_quit_game_pressed() -> void:
