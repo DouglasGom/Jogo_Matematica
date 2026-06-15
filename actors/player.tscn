@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://snm1pug6l5kq" path="res://assets/sprites/characters/Lil Wiz/Jumping_(32 x 32).png" id="3_esgq3"]
 [ext_resource type="Texture2D" uid="uid://c1jvaxektfppa" path="res://assets/sprites/characters/Lil Wiz/Running_(32 x 32).png" id="4_kjkj0"]
 [ext_resource type="AudioStream" uid="uid://bs5p7g5arsagr" path="res://assets/sounds/jump.wav" id="5_kjkj0"]
+[ext_resource type="AudioStream" uid="uid://ctmbf3nxbg7ww" path="res://assets/sounds/player_hurt.mp3" id="8_er1rk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_41w2c"]
 atlas = ExtResource("2_tue77")
@@ -193,6 +194,9 @@ collision_mask = 4
 [node name="jump_sfx" type="AudioStreamPlayer" parent="." unique_id=2115588161]
 stream = ExtResource("5_kjkj0")
 volume_db = -7.0
+
+[node name="player_hurt" type="AudioStreamPlayer" parent="." unique_id=963204328]
+stream = ExtResource("8_er1rk")
 
 [connection signal="animation_finished" from="anim" to="." method="_on_anim_animation_finished"]
 [connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

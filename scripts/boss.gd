@@ -13,6 +13,8 @@ var current_checkpoint_in_question := -1
 @onready var anim: AnimatedSprite2D = $anim
 @onready var attack_timer: Timer = $attack_timer
 @onready var health_bar: TextureProgressBar = $boss_health_bar
+@onready var boss_hurt: AudioStreamPlayer = $boss_hurt
+
 
 var facing_direction := -1
 
@@ -97,7 +99,7 @@ func take_damage(amount := 1) -> void:
 	if current_state == States.HURT or current_state == States.DEAD or current_state == States.RECOVERY:
 		return
 		
-	current_health -= amount
+	current_health -= amount*10
 	if current_health < 0:
 		current_health = 0 
 		
@@ -106,7 +108,9 @@ func take_damage(amount := 1) -> void:
 		
 	current_state = States.HURT
 	attack_timer.stop()
+	boss_hurt.play()
 	anim.play("hurt")
+	
 	
 	# --- EFEITOS DO IMPACTO (NOVO) ---
 	anim.modulate = Color(1, 0, 0, 1) # Deixa a textura totalmente vermelha
@@ -199,7 +203,6 @@ func die() -> void:
 	if health_bar != null:
 		health_bar.hide() 
 	
-	$collision.set_deferred("disabled", true) 
 	anim.play("destroy")
 
 # --- ANIMAÇÕES E TIROS ---

@@ -3,11 +3,12 @@
 [ext_resource type="Texture2D" uid="uid://blpgqvwac1ck8" path="res://assets/sprites/Mini FX, Items & UI/Mini UI/Dialog_Box(16 x 16).png" id="1_5gwjt"]
 [ext_resource type="Script" uid="uid://crqv5pjtlujh5" path="res://scripts/dialog_box.gd" id="1_6oeqo"]
 [ext_resource type="FontFile" uid="uid://dlpe4u2e7ckvu" path="res://extras/AnekLatin-VariableFont_wdth,wght.ttf" id="3_6oeqo"]
+[ext_resource type="FontFile" uid="uid://rgucvbowmmnk" path="res://extras/PressStart2P-Regular.ttf" id="4_omk6n"]
 
 [node name="dialog_box" type="MarginContainer" unique_id=68559214]
 offset_left = 1.0
-offset_right = 90.0
-offset_bottom = 24.0
+offset_right = 199.0
+offset_bottom = 23.0
 script = ExtResource("1_6oeqo")
 
 [node name="background" type="NinePatchRect" parent="." unique_id=224710037]
@@ -34,5 +35,18 @@ theme_override_fonts/font = ExtResource("3_6oeqo")
 theme_override_font_sizes/font_size = 12
 
 [node name="letter_time_display" type="Timer" parent="." unique_id=1271970340]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1853186526]
+
+[node name="advance_label" type="Label" parent="Area2D" unique_id=498108302]
+offset_right = 198.0
+offset_bottom = 60.0
+size_flags_vertical = 8
+theme_override_constants/outline_size = 5
+theme_override_fonts/font = ExtResource("4_omk6n")
+theme_override_font_sizes/font_size = 6
+text = "Pressione O para avançar"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="timeout" from="letter_time_display" to="." method="_on_letter_time_display_timeout"]

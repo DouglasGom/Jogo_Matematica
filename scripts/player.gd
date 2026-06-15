@@ -16,6 +16,8 @@ var can_attack := false
 @onready var animation := $anim as AnimatedSprite2D
 @onready var remote_transform = $remote as RemoteTransform2D
 @onready var jump_sfx: AudioStreamPlayer = $jump_sfx as AudioStreamPlayer
+@onready var player_hurt: AudioStreamPlayer = $player_hurt
+
 
 signal player_has_died()
 
@@ -115,6 +117,7 @@ func take_damage(knocback_force := Vector2.ZERO, duration := 0.25, source := "De
 		var knoback_tween := get_tree().create_tween()
 		knoback_tween.tween_property(self, "knockback_vector", Vector2.ZERO, duration)
 		animation.modulate = Color(1, 0, 0, 1)
+		player_hurt.play()
 		knoback_tween.tween_property(animation, "modulate", Color(1, 1, 1, 1), duration)
 		
 		await knoback_tween.finished
